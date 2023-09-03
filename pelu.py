@@ -4,7 +4,7 @@ import os
 messages = []
 
 def get_latest_dat_file(folder_path):
-    dat_files = [f for f in os.listdir(folder_path) if f.endswith('.dat')]
+    dat_files = [f for f in os.listdir(folder_path) if f.endswith('.dat')] # List all files in the folder that end with .dat
     
     if not dat_files:
         messages.append("No .dat files found in the specified folder.")
