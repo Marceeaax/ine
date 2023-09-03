@@ -33,7 +33,7 @@ class Cuestionario:
 def main():
 
     messages.clear()
-    
+
     folder_path = "C:\\Users\\Marcelo\\Desktop\\OngoingProjects\\INE"  # Replace with the actual path to your text file
     file_path = get_latest_dat_file(folder_path)
     numeroviviendas = 0
