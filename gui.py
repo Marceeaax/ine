@@ -3,11 +3,24 @@ from pelu import main
 import customtkinter
 from producciondiaria import calcularproduccion
 from tkinter import filedialog
+import configparser
+
+def save_directory_to_config(directory):
+    config = configparser.ConfigParser()
+    config['DEFAULT'] = {'directory': directory}
+    with open('app_config.ini', 'w') as configfile:
+        config.write(configfile)
+
+def load_directory_from_config():
+    config = configparser.ConfigParser()
+    config.read('app_config.ini')
+    return config['DEFAULT'].get('directory', None)
 
 def select_directory():
     selected_folder = filedialog.askdirectory(title="Select a Folder")
     if selected_folder:  # Ensure a folder was selected
         # Here, you can process the selected folder as required
+        save_directory_to_config(selected_folder)
         message_label.configure(text=f"Selected folder: {selected_folder}")
 
 def show_message():
@@ -35,6 +48,7 @@ def hide_message():
     # Show the main button again
     button.place(relx=0.5, rely=0.45, anchor=CENTER)
     produccion_button.place(relx=0.5, rely=0.55, anchor=CENTER)
+    directory_button.place(relx=0.5, rely=0.65, anchor=CENTER)
 
 
 def show_daily_production():
@@ -66,11 +80,12 @@ message_label = customtkinter.CTkLabel(root, text="", font=("Arial", 12))
 # Return button
 return_button = customtkinter.CTkButton(root, text="Volver", command=hide_message)
 
+
 button.place(relx=0.5, rely=0.45, anchor=CENTER)
 produccion_button.place(relx=0.5, rely=0.55, anchor=CENTER)
 
-select_directory_button = customtkinter.CTkButton(root, text="Escoger directorio", command=select_directory)
-select_directory_button.place(relx=0.5, rely=0.65, anchor=CENTER)  # You can adjust the positioning as needed
+directory_button = customtkinter.CTkButton(root, text="Escoger directorio", command=select_directory)
+directory_button.place(relx=0.5, rely=0.65, anchor=CENTER)  # You can adjust the positioning as needed
 
 
 root.mainloop()

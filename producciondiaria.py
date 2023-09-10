@@ -11,6 +11,8 @@ def calcularproduccion():
     dat_files = [f for f in os.listdir(folder_path) if f.endswith('.dat')] # List all files in the folder that end with .dat
 
     today = datetime.datetime.now().date()
+    
+    today = datetime.date(2023, 8, 3) # For testing purposes
 
     if not dat_files:
         messages.append("No .dat files found in the specified folder.")
