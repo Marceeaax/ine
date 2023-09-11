@@ -30,11 +30,12 @@ class Cuestionario:
 
 """viviendas = []"""
 
-def main():
+def main(directory):
 
     messages.clear()
 
     folder_path = "C:\\Users\\Marcelo\\Desktop\\OngoingProjects\\INE"  # Replace with the actual path to your text file
+    folder_path = directory
     file_path = get_latest_dat_file(folder_path)
     numeroviviendas = 0
     mujeresdigitadas = 0

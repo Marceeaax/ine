@@ -5,6 +5,7 @@ from producciondiaria import calcularproduccion
 from tkinter import filedialog
 import configparser
 
+
 def save_directory_to_config(directory):
     config = configparser.ConfigParser()
     config['DEFAULT'] = {'directory': directory}
@@ -15,6 +16,11 @@ def load_directory_from_config():
     config = configparser.ConfigParser()
     config.read('app_config.ini')
     return config['DEFAULT'].get('directory', None)
+
+def display_saved_directory():
+    directory = load_directory_from_config()
+    if directory:
+        message_label.configure(text=f"Last selected folder: {directory}")
 
 def select_directory():
     selected_folder = filedialog.askdirectory(title="Select a Folder")
@@ -29,7 +35,9 @@ def show_message():
     for widget in root.winfo_children():
         widget.place_forget()
 
-    output = main()
+    directory = load_directory_from_config()
+
+    output = main(directory)
 
     message_label.configure(text="")
 
@@ -56,7 +64,8 @@ def show_daily_production():
     for widget in root.winfo_children():
         widget.place_forget()
 
-    output = calcularproduccion()
+    directory = load_directory_from_config()
+    output = calcularproduccion(directory)
 
     message_label.configure(text="")
     message_label.configure(text=output)
@@ -76,6 +85,8 @@ produccion_button = customtkinter.CTkButton(root, text="Producción Diaria", com
 
 # Message label
 message_label = customtkinter.CTkLabel(root, text="", font=("Arial", 12))
+
+display_saved_directory()
 
 # Return button
 return_button = customtkinter.CTkButton(root, text="Volver", command=hide_message)
