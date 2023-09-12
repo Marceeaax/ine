@@ -78,8 +78,12 @@ def main(directory):
                     poblacionnominal = line[165:167]
                     #messages.append(f"Hombres: {line[167:169]}")
                     hombres = line[167:169]
+                    if(hombres == "  "):
+                        hombres = "0"
                     #messages.append(f"Mujeres: {line[169:171]}")
                     mujeres = line[169:171]
+                    if(mujeres == "  "):
+                        mujeres = "0"
                     #messages.append(f"Poblacion digitada: {line[218:222]}")
                     poblaciondigitada = line[218:222]
 
@@ -107,21 +111,19 @@ def main(directory):
                         #messages.append(f"Hombres digitados: {hombresdigitados}")
                         #messages.append(f"Mujeres digitadas: {mujeresdigitadas}")
 
-                            if(hombres != "  "):
-                                if(hombresdigitados != int(hombres)):
-                                    imprimircuestionario(ae, identificadorvivienda)
-                                    messages.append("Hombres digitados no coinciden con hombres")
-                                    messages.append(f"Hombres digitados: {hombresdigitados}")
-                                    messages.append(f"Hombres listados: {hombres}")
+                            if(hombresdigitados != int(hombres)):
+                                imprimircuestionario(ae, identificadorvivienda)
+                                messages.append("Hombres digitados no coinciden con hombres")
+                                messages.append(f"Hombres digitados: {hombresdigitados}")
+                                messages.append(f"Hombres listados: {hombres}")
 
-                            if(mujeres != "  "):
-                                if(mujeresdigitadas != int(mujeres)):
-                                    imprimircuestionario(ae, identificadorvivienda)
-                                    messages.append("Mujeres digitadas no coinciden con mujeres")
-                                    messages.append(f"Mujeres digitadas: {mujeresdigitadas}")
-                                    messages.append(f"Mujeres listadas: {mujeres}")
+                            if(mujeresdigitadas != int(mujeres)):
+                                imprimircuestionario(ae, identificadorvivienda)
+                                messages.append("Mujeres digitadas no coinciden con mujeres")
+                                messages.append(f"Mujeres digitadas: {mujeresdigitadas}")
+                                messages.append(f"Mujeres listadas: {mujeres}")
                             
-                            hombresdigitados = mujeresdigitadas = singenero = 0
+                        hombresdigitados = mujeresdigitadas = singenero = 0
 
             #messages.append(f"Number of lines starting with 1: {numeroviviendas}")
     except FileNotFoundError:
