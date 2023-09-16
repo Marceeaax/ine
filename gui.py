@@ -54,6 +54,7 @@ def hide_message():
     return_button.place_forget()
 
     # Show the main button again
+    big_message.place(relx=0.5, rely=0.3, anchor=CENTER)
     button.place(relx=0.5, rely=0.45, anchor=CENTER)
     produccion_button.place(relx=0.5, rely=0.55, anchor=CENTER)
     directory_button.place(relx=0.5, rely=0.65, anchor=CENTER)
@@ -76,7 +77,11 @@ def show_daily_production():
 customtkinter.set_appearance_mode("dark")
 root = customtkinter.CTk()
 root.title("INÉ")
+root.iconbitmap('images/INElogoPNG.ico')
 root.geometry("500x500")
+
+big_message = customtkinter.CTkLabel(root, text="Ndetarovaonde ko herramienta ko'a", font=("Arial", 18))
+big_message.place(relx=0.5, rely=0.3, anchor=CENTER)
 
 # Main button
 button = customtkinter.CTkButton(root, text="Tabla de Carga", command=show_message)

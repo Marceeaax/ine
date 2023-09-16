@@ -1,0 +1,34 @@
+Certainly! Packaging your application with an installer can sometimes reduce the likelihood of false positives and also provides a more professional installation experience for your users.
+
+Here's a basic guide using **Inno Setup**, a free installer for Windows programs:
+
+### Step 1: Download and Install Inno Setup
+1. Go to the [Inno Setup Downloads](http://www.jrsoftware.org/isdl.php) page.
+2. Download the latest version and install it.
+
+### Step 2: Create a New Script
+1. Launch Inno Setup and choose to create a new script using the Script Wizard.
+2. Follow the wizard's prompts:
+   - `Application Information`: Provide details about your application.
+   - `Application Folder`: Choose where your application will be installed. The default is typically something like `C:\Program Files\YourAppName`.
+   - `Application Files`: Add the `.exe` file and any other required files for your application.
+   - Continue with other options like shortcuts, uninstaller, etc., as needed for your application.
+
+### Step 3: Compile the Script
+1. After finishing the wizard, you'll have a script generated for you.
+2. Click on the **Compile** button in Inno Setup to create your installer.
+3. Once compiled, you'll have an `.exe` that serves as an installer for your application.
+
+### Step 4: Distribute Your Installer
+Instead of distributing your application's `.exe` directly, you would distribute this installer `.exe`. When users run the installer, it'll install your application in their chosen directory, and optionally create shortcuts as you configured.
+
+### Additional Notes
+- Using an installer doesn't guarantee that antiviruses won't flag your application. However, it can help in some cases.
+- You can also customize the Inno Setup script further to have more control over the installation process.
+- Remember to always test the installer on your own system and, if possible, on a few others before distributing it widely.
+
+I hope this helps you create a smooth installation experience for your users!
+
+In order to build te exe file use the command 
+
+pyinstaller --onefile --noconsole gui.py
