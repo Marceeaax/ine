@@ -8,7 +8,7 @@ def calcularproduccion(directory):
     viviendas = poblacion = 0
 
     folder_path = "C:\\Users\\Marcelo\\Desktop\\OngoingProjects\\INE"  # Replace with the actual path to your text file
-    folder_path = directory 
+    folder_path = directory
     dat_files = [f for f in os.listdir(folder_path) if f.endswith('.dat')] # List all files in the folder that end with .dat
 
     today = datetime.datetime.now().date()
