@@ -32,3 +32,14 @@ I hope this helps you create a smooth installation experience for your users!
 In order to build te exe file use the command 
 
 pyinstaller --onefile --noconsole gui.py
+
+if you want to include images or more specifically, non python files, you should actually modify the .spec file located inside the directory of the .exe you want to build.
+
+Open the .spec file and find the datas=[] line. Modify it to include your image:
+
+datas=[('images/INElogoPNG.ico', 'images')]
+
+After modifying the .spec file, run pyinstaller with the .spec file as an argument, rather than the Python script:
+
+pyinstaller gui.spec
+

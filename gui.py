@@ -1,3 +1,6 @@
+import os
+import sys
+
 from tkinter import *
 from pelu import main
 import customtkinter
@@ -89,10 +92,24 @@ def show_weekly_production():
 
     return_button.place(relx=0.5, rely=0.6, anchor=CENTER)
 
+# inicio importar icono 
+
+if getattr(sys, 'frozen', False):
+    # If the application is run as a bundle/exe
+    base_path = sys._MEIPASS
+else:
+    base_path = os.path.dirname(os.path.abspath(__file__))
+
+# Set the icon path accordingly
+icon_path = os.path.join(base_path, 'images\INElogoPNG.ico')
+print("Icon path:", icon_path)
+# opa upepe
+
+
 customtkinter.set_appearance_mode("dark")
 root = customtkinter.CTk()
 root.title("INÉ")
-root.iconbitmap('images/INElogoPNG.ico')
+root.iconbitmap(icon_path)
 root.geometry("500x500")
 
 big_message = customtkinter.CTkLabel(root, text="Ndetarovaonde ko herramienta ko'a", font=("Arial", 18))
