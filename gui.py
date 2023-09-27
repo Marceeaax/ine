@@ -2,6 +2,7 @@ from tkinter import *
 from pelu import main
 import customtkinter
 from producciondiaria import calcularproduccion
+from produccionsemanal import produccionsemanal
 from tkinter import filedialog
 import configparser
 
@@ -58,6 +59,7 @@ def hide_message():
     button.place(relx=0.5, rely=0.45, anchor=CENTER)
     produccion_button.place(relx=0.5, rely=0.55, anchor=CENTER)
     directory_button.place(relx=0.5, rely=0.65, anchor=CENTER)
+    produccion_semanal_button.place(relx=0.5, rely=0.75, anchor=CENTER)
 
 
 def show_daily_production():
@@ -67,6 +69,19 @@ def show_daily_production():
 
     directory = load_directory_from_config()
     output = calcularproduccion(directory)
+
+    message_label.configure(text="")
+    message_label.configure(text=output)
+    message_label.place(relx=0.5, rely=0.3, anchor=CENTER)
+
+    return_button.place(relx=0.5, rely=0.6, anchor=CENTER)
+
+def show_weekly_production():
+    for widget in root.winfo_children():
+        widget.place_forget()
+
+    directory = load_directory_from_config()
+    output = produccionsemanal(directory)
 
     message_label.configure(text="")
     message_label.configure(text=output)
@@ -87,6 +102,9 @@ big_message.place(relx=0.5, rely=0.3, anchor=CENTER)
 button = customtkinter.CTkButton(root, text="Tabla de Carga", command=show_message)
 
 produccion_button = customtkinter.CTkButton(root, text="Producción Diaria", command=show_daily_production)
+
+produccion_semanal_button = customtkinter.CTkButton(root, text="Producción Semanal", command=show_weekly_production)
+produccion_semanal_button.place(relx=0.5, rely=0.75, anchor=CENTER)  # Adjust the position as needed
 
 # Message label
 message_label = customtkinter.CTkLabel(root, text="", font=("Arial", 12))
