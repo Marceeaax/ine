@@ -29,7 +29,7 @@ def produccionsemanal(directory):
                 # remember that the variable today is in format YYYY-MM-DD so we need to remove the dashes in order to compare them
 
                 for line in lines:
-                    if line.startswith("1") and today == datetime.datetime.strptime(line[191:199], "%Y%m%d").date():
+                    if line.startswith("1") and fechahoy == datetime.datetime.strptime(line[191:199], "%Y%m%d").date():
                         viviendas += 1
                         poblacion += int(line[218:222])
 
