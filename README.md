@@ -1,13 +1,13 @@
 # Herramienta INÉ 🌟
 
-¡Hola a todos! Bienvenidos al repositorio oficial de la herramienta INÉ. Esta herramienta está diseñada para hacer tu vida un poco más fácil cuando trabajas con datos y estadísticas.
+¡Ha'upei los perros! Bienvenidos al repositorio oficial de la herramienta INÉ. Esta herramienta está diseñada para hacer tu vida un poco más fácil cuando trabajás como Técnico Normalizador o coloquialmente conocido como DIGITADOR en el Instituto Nacional de Estadística.
 
 ## Características 🚀
 1. **Tabla de Carga** 📊 - Visualiza todos los datos cargados en una tabla amigable.
 2. **Producción Diaria** ☀️ - Obten una visión diaria de tus datos.
 3. **Producción Semanal** 📆 - ¡Para aquellos que aman ver estadísticas semanales!
 
-## ¿Cómo usarlo? 🤔
+## ¿Mba'éicha ojeipuru ko herramienta ko'a? 🤔
 
 1. Clona el repositorio.
 2. Ejecuta `gui.exe`.
