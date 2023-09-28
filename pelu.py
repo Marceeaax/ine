@@ -13,9 +13,10 @@ def get_latest_dat_file(folder_path):
     latest_file = max(dat_files, key=lambda f: os.path.getmtime(os.path.join(folder_path, f)))
     return os.path.join(folder_path, latest_file)
 
-def imprimircuestionario(ae, identificadorvivienda):
+def imprimircuestionario(ae, identificadorvivienda, ordenvivienda):
     messages.append(f"AE: {ae}")
     messages.append(f"Identificador vivienda: {identificadorvivienda}")
+    messages.append(f"Orden vivienda: {ordenvivienda}")
 
 """@dataclass
 class Cuestionario:
@@ -89,10 +90,10 @@ def main(directory):
 
                     if(poblacionnominal != "  "):
                         if(int(poblacionnominal) > int(poblaciondigitada)):
-                            imprimircuestionario(ae, identificadorvivienda)
+                            imprimircuestionario(ae, identificadorvivienda, ordenvivienda)
                             messages.append("Poblacion nominal mayor a poblacion digitada")
                         elif (int(poblacionnominal) < int(poblaciondigitada)):
-                            imprimircuestionario(ae, identificadorvivienda)
+                            imprimircuestionario(ae, identificadorvivienda, ordenvivienda)
                             messages.append("Poblacion nominal menor a poblacion digitada")
                         
                 else:
@@ -112,13 +113,13 @@ def main(directory):
                         #messages.append(f"Mujeres digitadas: {mujeresdigitadas}")
 
                             if(hombresdigitados != int(hombres)):
-                                imprimircuestionario(ae, identificadorvivienda)
+                                imprimircuestionario(ae, identificadorvivienda, ordenvivienda)
                                 messages.append("Hombres digitados no coinciden con hombres")
                                 messages.append(f"Hombres digitados: {hombresdigitados}")
                                 messages.append(f"Hombres listados: {hombres}")
 
                             if(mujeresdigitadas != int(mujeres)):
-                                imprimircuestionario(ae, identificadorvivienda)
+                                imprimircuestionario(ae, identificadorvivienda, ordenvivienda)
                                 messages.append("Mujeres digitadas no coinciden con mujeres")
                                 messages.append(f"Mujeres digitadas: {mujeresdigitadas}")
                                 messages.append(f"Mujeres listadas: {mujeres}")
