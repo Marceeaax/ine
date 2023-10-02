@@ -43,6 +43,11 @@ def show_message():
 
     output = main(directory)
 
+    ## if output is empty, show a message
+
+    if not output:
+        output = "Ndaiporiveima la error"
+
     message_label.configure(text="")
 
     # Show the message
