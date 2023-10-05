@@ -23,7 +23,7 @@ Significa "Herramienta maravillosa" en guaraní. ¡Y esperamos que así lo encue
 
 ## Contribuciones 💡
 
-¡Siéntete libre de contribuir! Abre un issue o envía un pull request. Jajotopáta (¡hasta luego!) y ndaipóri vyrorei (¡que todo vaya bien!).
+¡Siéntete libre de contribuir! Abre un issue o envía un pull request. Jajotopáta tape po'ipe (¡hasta luego!) y ndaipóri vyrorei (¡que todo vaya bien!).
 
 ## Créditos 🎖️
 
