@@ -27,5 +27,5 @@ Significa "Herramienta maravillosa" en guaraní. ¡Y esperamos que así lo encue
 
 ## Créditos 🎖️
 
-- Desarrollado por Marcelo.
+- Desarrollado por Marcelo Aguayo.
 - Agradecimientos especiales a OpenAI y su asistente virtual por la ayuda en el desarrollo.
