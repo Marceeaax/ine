@@ -129,8 +129,11 @@ def main(directory):
             #messages.append(f"Number of lines starting with 1: {numeroviviendas}")
     except FileNotFoundError:
         messages.append("The file could not be found.")
+    except PermissionError:
+        messages.append("Emboty ra'e la nde programa")
     except IOError as e:
         messages.append(f"An error occurred while reading the file: {e}")
+
 
     return '\n'.join(messages)
 
