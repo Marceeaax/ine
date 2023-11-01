@@ -9,6 +9,23 @@ from produccionsemanal import produccionsemanal
 from tkinter import filedialog
 import configparser
 
+def toggle_buttons_state(directory=None):
+    """
+    Toggle the state of the buttons based on whether a directory is selected.
+    """
+    print("Inside toggle_buttons_state function")
+
+    if directory:
+        # If directory is provided, activate all buttons
+        print(f"Button State: {button.configure}, Directory: {directory}")
+        button.configure(state='normal')
+        produccion_button.configure(state='normal')
+        produccion_semanal_button.configure(state='normal')
+    else:
+        # If no directory, deactivate and gray out all buttons except "Escoger directorio"
+        button.configure(state='disabled')
+        produccion_button.configure(state='disabled')
+        produccion_semanal_button.configure(state='disabled')
 
 def save_directory_to_config(directory):
     config = configparser.ConfigParser()
@@ -32,6 +49,7 @@ def select_directory():
         # Here, you can process the selected folder as required
         save_directory_to_config(selected_folder)
         message_label.configure(text=f"Selected folder: {selected_folder}")
+        toggle_buttons_state(selected_folder)
 
 def show_message():
     # Hide the main button
@@ -143,5 +161,7 @@ produccion_button.place(relx=0.5, rely=0.55, anchor=CENTER)
 directory_button = customtkinter.CTkButton(root, text="Escoger directorio", command=select_directory)
 directory_button.place(relx=0.5, rely=0.65, anchor=CENTER)  # You can adjust the positioning as needed
 
+initial_directory = load_directory_from_config()
+toggle_buttons_state(None)
 
 root.mainloop()
