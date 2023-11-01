@@ -22,7 +22,7 @@ def calcularproduccion(directory):
                    and datetime.datetime.fromtimestamp(os.path.getmtime(os.path.join(folder_path, f))).date() == today]
 
     if not dat_files_today:
-        messages.append("No se encontraron archivos editados con fecha de hoy")
+        messages.append("Nderejapoiti mba'eve ko'etedia")
     else:
         viviendas = poblacion = 0
         for dat_file in dat_files_today:
