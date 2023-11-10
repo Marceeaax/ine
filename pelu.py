@@ -11,6 +11,7 @@ def get_latest_dat_file(folder_path):
         return None
     
     latest_file = max(dat_files, key=lambda f: os.path.getmtime(os.path.join(folder_path, f)))
+    #latest_file = "120710020010003.dat"
     return os.path.join(folder_path, latest_file)
 
 def imprimircuestionario(ae, identificadorvivienda, ordenvivienda):
@@ -77,6 +78,8 @@ def main(directory):
                     ordenvivienda = line[23:25]
                     #messages.append(f"Poblacion nominal: {line[165:167]}")
                     poblacionnominal = line[165:167]
+                    if(poblacionnominal == "  "):
+                        poblacionnominal = "0"
                     #messages.append(f"Hombres: {line[167:169]}")
                     hombres = line[167:169]
                     if(hombres == "  "):
